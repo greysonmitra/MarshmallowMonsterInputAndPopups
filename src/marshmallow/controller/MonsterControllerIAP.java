@@ -26,7 +26,7 @@ public class MonsterControllerIAP
 		
 		monsterScanner = new Scanner(System.in);
 		myOutput = new MarshmallowOutputIAP();
-		greysonMonster = new MarshmallowMonsterIAP(name, eyes, noses, hair, legs, hasbellybutton); //must match constructor in MarhmallowMonster.java
+		greysonMonster = new MarshmallowMonsterIAP(name, eyes, noses, hair, legs, hasbellybutton); //must match constructor in MarshmallowMonster.java
 	}
 	public void start()
 	{
@@ -61,12 +61,39 @@ public class MonsterControllerIAP
 		myOutput.showResponse("You typed: " + myEyes);
 		
 
+		
+		
+		
+		String tempNoses = myOutput.grabAnswer("Type in your desired amount of monster noses");
+		int myNoses;
+		
+		while(!isInteger(tempNoses))
+		{
+			tempNoses = myOutput.grabAnswer("Type in a positive integer for your monster's noses!!!!!");
+		}
+		
+		if(isInteger(tempNoses))
+		{
+			myEyes = Integer.parseInt(tempNoses); 
+		}
+		else
+		{
+			myNoses = -9999999;
+		}
+		
+		
+		myOutput.showResponse("You typed: " + myNoses);
+		
+		
+		
+		
+		
 		String tempHair = myOutput.grabAnswer("Type in your desired amount of monster hair");
 		double myHair; 
 		
 		while(!isDouble(tempHair))
 		{
-			tempHair = myOutput.grabAnswer("Type in a positive floating-point for your Hair!!!!!");
+			tempHair = myOutput.grabAnswer("Type in a positive floating-point for your hair!!!!!");
 		}
 		
 		if(isDouble(tempHair))
@@ -82,8 +109,111 @@ public class MonsterControllerIAP
 		myOutput.showResponse("You typed: " + myHair);
 		
 		
+		
+		
+		
+		String tempLegs = myOutput.grabAnswer("Type in your desired amount of monster legs");
+		double myLegs; 
+		
+		while(!isDouble(tempLegs))
+		{
+			tempLegs = myOutput.grabAnswer("Type in a positive floating-point for your legs!!!!!");
+		}
+		
+		if(isDouble(tempLegs))
+		{
+		
+			myLegs = Double.parseDouble(tempLegs);
+		}
+		else
+		{
+			myLegs = -999999.9;
+		}
+		
+		myOutput.showResponse("You typed: " + myLegs);
+		
+		
+		
+		
+		
+		String tempBellyButton = myOutput.grabAnswer("Type in your monster's bellybutton status");
+		boolean myBellyButton; 
+		
+		while(!isBoolean(tempBellyButton))
+		{
+			tempBellyButton = myOutput.grabAnswer("Type in true or false for your monster's bellybutton!!!!!");
+		}
+		
+		if(isBoolean(tempBellyButton))
+		{
+		
+			myBellyButton = Boolean.parseBoolean(tempBellyButton);
+		}
+		else
+		{
+			myBellyButton = false;
+		}
+		
+		myOutput.showResponse("You typed: " + myBellyButton);
+		
+		greysonMonster = new MarshmallowMonsterIAP(tempEyes, tempNoses, tempHair, tempLegs, tempBellyButton);
+		
 	}
 	
+	
+	
+	
+	
+	private boolean isInteger(String input)
+	{
+		boolean isInt = false;
+		
+		try
+		{
+			int temp = Integer.parseInt(input);
+			isInt = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.showResponse("not an int - bad value will be used");
+		}
+		
+		return isInt;
+	}
+	
+	private boolean isDouble(String input)
+	{
+		boolean isDouble = false;
+		
+		try
+		{
+			double temp = Double.parseDouble(input);
+			isDouble = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myOutput.showResponse("not a double - bad value will be used");
+		}
+		
+		return isDouble;
+	}
+	
+	private boolean isBoolean(String input)
+	{
+		boolean isBoolean = false;
+		
+		try
+		{
+			boolean temp = Boolean.parseBoolean(input);
+			isBoolean = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myOutput.showResponse("not a boolean - bad value will be used");
+		}
+		
+		return isBoolean;
+	}
 	
 	
 	

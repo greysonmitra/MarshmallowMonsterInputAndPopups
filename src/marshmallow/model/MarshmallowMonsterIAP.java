@@ -9,7 +9,7 @@ public class MarshmallowMonsterIAP
 	private double monsterLegs;
 	private boolean monsterBellyButton;
 	
-	private MarshmallowMonsterIAP()
+	public MarshmallowMonsterIAP()
 	{
 		
 	}
