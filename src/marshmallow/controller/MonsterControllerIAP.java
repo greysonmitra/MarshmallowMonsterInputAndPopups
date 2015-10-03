@@ -156,7 +156,7 @@ public class MonsterControllerIAP
 		
 		myOutput.showResponse("You typed: " + myBellyButton);
 		
-		greysonMonster = new MarshmallowMonsterIAP(tempEyes, tempNoses, tempHair, tempLegs, tempBellyButton);
+		greysonMonster = new MarshmallowMonsterIAP(myEyes, myNoses, myHair, myLegs, myBellyButton);
 		
 	}
 	
@@ -175,7 +175,7 @@ public class MonsterControllerIAP
 		}
 		catch(NumberFormatException error)
 		{
-			myPopups.showResponse("not an int - bad value will be used");
+			myOutput.showResponse("not an int - bad value will be used");
 		}
 		
 		return isInt;
