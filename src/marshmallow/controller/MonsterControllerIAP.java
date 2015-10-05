@@ -74,7 +74,7 @@ public class MonsterControllerIAP
 		
 		if(isInteger(tempNoses))
 		{
-			myEyes = Integer.parseInt(tempNoses); 
+			myNoses = Integer.parseInt(tempNoses); 
 		}
 		else
 		{
@@ -156,7 +156,7 @@ public class MonsterControllerIAP
 		
 		myOutput.showResponse("You typed: " + myBellyButton);
 		
-		greysonMonster = new MarshmallowMonsterIAP(myEyes, myNoses, myHair, myLegs, myBellyButton);
+		greysonMonster = new MarshmallowMonsterIAP(temp, myEyes, myNoses, myHair, myLegs, myBellyButton);
 		
 	}
 	
